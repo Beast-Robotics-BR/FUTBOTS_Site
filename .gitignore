@@ -1,0 +1,32 @@
+# Dependencies
+**/node_modules
+.pnpm-store/
+
+# Build
+dist/
+build/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Logs / cache
+*.log
+.cache/
+coverage/
+*.tsbuildinfo
+
+# Manus / tooling residual
+.manus-logs/
+.webdev/
+.project-config.json
+client/public/__manus__/
