@@ -96,6 +96,7 @@ export default function Home() {
   const addBlock = (kind: BlockKind) => setBlocks((current) => [...current, { id: uid(), kind, level: 2, duration: kind === "stop" ? 300 : 1000 }]);
   const updateBlock = (id: string, patch: Partial<ProgramBlock>) => setBlocks((current) => current.map((block) => block.id === id ? { ...block, ...patch } : block));
   const moveBlock = (index: number, direction: -1 | 1) => setBlocks((current) => { const target = index + direction; if (target < 0 || target >= current.length) return current; const next = [...current]; [next[index], next[target]] = [next[target], next[index]]; return next; });
+  const removeBlock = (id: string) => setBlocks((current) => current.filter((block) => block.id !== id));
   const sendCli = async () => { const input = cliInput.trim(); if (!input) return; await sendRaw(input.startsWith("@") || input.endsWith(";") ? input : frame(input)); setCliInput(""); };
   const changeTheme = (value: string) => { setTheme(value); localStorage.setItem(THEME_KEY, value); };
   const openWorkspace = () => setPhase("workspace");
